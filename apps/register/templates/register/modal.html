@@ -1,0 +1,22 @@
+{% extends 'register/base.html' %}
+
+{% block modal_heading %}
+    <h2>First, create your ShopRunner login.</h2>
+    <p>You will use the email address below to sign in when you see the ShopRunner logo at top online retailers.</p>
+{% endblock %}
+    
+{% block form %}
+    
+
+    <form class="login-form" action="{% url 'register:register' form_id=form_id %}" method="POST">
+      {% csrf_token %}
+      
+      {{form.as_p}}
+
+      {% block button %}
+        <button>Submit</button>
+      {% endblock %}
+
+    </form>
+
+{% endblock %}
